@@ -10,7 +10,7 @@ namespace TestCore.Data.Context
     {
         public WorkFlowContext(DbContextOptions<WorkFlowContext> options) : base(options)
         {
-            Database.Migrate();
+            //Database.Migrate();
         }
         public virtual DbSet<Employees> Employees { get; set; }
         public virtual DbSet<Tasks> Tasks { get; set; }
