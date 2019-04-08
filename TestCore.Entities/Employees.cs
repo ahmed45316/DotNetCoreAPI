@@ -8,17 +8,18 @@ namespace TestCore.Entities
 {
     public class Employees
     {
-        private readonly ILazyLoader _lazyLoader;
+        //private readonly ILazyLoader _lazyLoader;
         public Employees()
         {
 
         }
         [Key]
-        [StringLength(256)]
-        public string Id { get; set; }
+        public Guid Id { get; set; }
         [StringLength(100)]
         public string EmployeeName { get; set; }
-        private  List<Tasks> _tasks;
-        public  List<Tasks> Tasks { get=> _lazyLoader.Load(this, ref _tasks);  set=> _tasks = value;  }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Tasks> Tasks { get; set; }
+        //private List<Tasks> _tasks;
+        //public  List<Tasks> Tasks { get=> _lazyLoader.Load(this, ref _tasks);  set=> _tasks = value;  }
     }
 }

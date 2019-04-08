@@ -9,8 +9,7 @@ namespace TestCore.Entities
     public class Tasks
     {
         [Key]
-        [StringLength(256)]
-        public string Id { get; set; }
+        public Guid Id { get; set; }
         [StringLength(100)]
         public string TaskTitle { get; set; }
         [StringLength(500)]
@@ -18,8 +17,8 @@ namespace TestCore.Entities
         public DateTime TaskDateRescived { get; set; }
         public bool? TaskFinshed { get; set; }
         [StringLength(256)]
-        public string EmployeeId { get; set; }
+        public Guid EmployeeId { get; set; }
         [ForeignKey("EmployeeId")]
-        public Employees Employee { get; set; }
+        public virtual Employees Employee { get; set; }
     }
 }

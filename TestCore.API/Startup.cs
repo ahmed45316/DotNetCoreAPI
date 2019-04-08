@@ -47,9 +47,9 @@ namespace TestCore.API
                 c.SwaggerDoc("v1.0", new Info { Title = "Test Core API", Version = "1.0" });
                 c.IncludeXmlComments(System.IO.Path.Combine(System.AppContext.BaseDirectory, "SwaggerDemo.xml"));
             });
-            var connection = @"Server=compassegy.ddns.net;Database=WorkFlowDb;User ID=sa;Password=Compass2018;Trusted_Connection=False;ConnectRetryCount=0";
+            var connection = Configuration.GetConnectionString("MyConnStr");
             services.AddDbContext<WorkFlowContext>
-                (options => options.UseSqlServer(connection));
+                (options => options.UseLazyLoadingProxies().UseSqlServer(connection));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

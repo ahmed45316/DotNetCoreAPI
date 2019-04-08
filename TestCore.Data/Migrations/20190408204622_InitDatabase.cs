@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TestCore.Data.Migrations
 {
-    public partial class InitConfig : Migration
+    public partial class InitDatabase : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -11,7 +11,7 @@ namespace TestCore.Data.Migrations
                 name: "Employees",
                 columns: table => new
                 {
-                    Id = table.Column<string>(maxLength: 256, nullable: false),
+                    Id = table.Column<Guid>(nullable: false),
                     EmployeeName = table.Column<string>(maxLength: 100, nullable: true)
                 },
                 constraints: table =>
@@ -23,12 +23,12 @@ namespace TestCore.Data.Migrations
                 name: "Tasks",
                 columns: table => new
                 {
-                    Id = table.Column<string>(maxLength: 256, nullable: false),
+                    Id = table.Column<Guid>(nullable: false),
                     TaskTitle = table.Column<string>(maxLength: 100, nullable: true),
                     TaskDescription = table.Column<string>(maxLength: 500, nullable: true),
                     TaskDateRescived = table.Column<DateTime>(nullable: false),
                     TaskFinshed = table.Column<bool>(nullable: true),
-                    EmployeeId = table.Column<string>(maxLength: 256, nullable: true)
+                    EmployeeId = table.Column<Guid>(maxLength: 256, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -38,7 +38,7 @@ namespace TestCore.Data.Migrations
                         column: x => x.EmployeeId,
                         principalTable: "Employees",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(

@@ -10,12 +10,12 @@ using TestCore.Data.Context;
 namespace TestCore.Data.Migrations
 {
     [DbContext(typeof(WorkFlowContext))]
-    [Migration("20190325232706_InitConfig")]
-    partial class InitConfig
+    [Migration("20190408204622_InitDatabase")]
+    partial class InitDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
-            #pragma warning disable 612, 618
+#pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.1.8-servicing-32085")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
@@ -23,9 +23,8 @@ namespace TestCore.Data.Migrations
 
             modelBuilder.Entity("TestCore.Entities.Employees", b =>
                 {
-                    b.Property<string>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasMaxLength(256);
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
 
                     b.Property<string>("EmployeeName")
                         .HasMaxLength(100);
@@ -37,11 +36,10 @@ namespace TestCore.Data.Migrations
 
             modelBuilder.Entity("TestCore.Entities.Tasks", b =>
                 {
-                    b.Property<string>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasMaxLength(256);
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
 
-                    b.Property<string>("EmployeeId")
+                    b.Property<Guid>("EmployeeId")
                         .HasMaxLength(256);
 
                     b.Property<DateTime>("TaskDateRescived");
@@ -65,7 +63,8 @@ namespace TestCore.Data.Migrations
                 {
                     b.HasOne("TestCore.Entities.Employees", "Employee")
                         .WithMany("Tasks")
-                        .HasForeignKey("EmployeeId");
+                        .HasForeignKey("EmployeeId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }
