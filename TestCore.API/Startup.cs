@@ -1,18 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
+using NetCore.AutoRegisterDi;
 using Swashbuckle.AspNetCore.Swagger;
-using TestCore.Data.Context;
+using System;
+using System.Linq;
+using System.Reflection;
+using TestCore.Business.WorkFlowContextWork;
+using TestCore.Business.WorkBusiness;
+using TestCore.Repositories.UnitOfWork;
 
 namespace TestCore.API
 {
@@ -41,16 +40,24 @@ namespace TestCore.API
         /// <param name="services"></param>
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAutoMapper();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1.0", new Info { Title = "Test Core API", Version = "1.0" });
                 c.IncludeXmlComments(System.IO.Path.Combine(System.AppContext.BaseDirectory, "SwaggerDemo.xml"));
             });
-            var connection = Configuration.GetConnectionString("MyConnStr");
-            services.AddDbContext<WorkFlowContext>
-                (options => options.UseLazyLoadingProxies().UseSqlServer(connection));
+            //var connection = Configuration.GetConnectionString("MyConnStr");
+            //services.AddDbContext<WorkFlowContext>
+            //    (options => options.UseLazyLoadingProxies().UseSqlServer(connection));
+            services.AddSingleton(typeof(IUnitOfWork<>), typeof(WorkFlow<>));
+
+            var assemblyToScan = Assembly.GetAssembly(typeof(EmployeeBusiness)); //..or whatever assembly you need
+            services.RegisterAssemblyPublicNonGenericClasses(assemblyToScan)
+              .Where(c => c.Name.EndsWith("Business"))
+              .AsPublicImplementedInterfaces();
         }
+
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         /// <summary>

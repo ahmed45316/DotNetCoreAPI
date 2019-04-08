@@ -5,7 +5,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\TestCore.Common\TestCore.Common.csproj" />
+    <ProjectReference Include="..\TestCore.Data\TestCore.Data.csproj" />
+    <ProjectReference Include="..\TestCore.Entities\TestCore.Entities.csproj" />
+    <ProjectReference Include="..\TestCore.Repositories\TestCore.Repositories.csproj" />
   </ItemGroup>
 
 </Project>
