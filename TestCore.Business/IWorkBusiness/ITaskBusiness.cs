@@ -1,0 +1,16 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using TestCore.Business.Dto;
+
+namespace TestCore.Business.IWorkBusiness
+{
+    public interface ITaskBusiness
+    {
+        IEnumerable<TaskDto> GetAll();
+        TaskDto Get(Guid Id);
+        TaskDto Create(TaskDto data);
+        void Update(TaskDto data);
+        void Remove(TaskDto data);
+    }
+}
