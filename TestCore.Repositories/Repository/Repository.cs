@@ -107,6 +107,8 @@ namespace TestCore.Repositories.Repository
         public void Remove(T entity)
         {
             DbSet.Remove(entity);
+            //T existing = DbSet.Find(entity);
+            //if (existing != null) DbSet.Remove(existing);
         }
 
         public void RemoveRange(IEnumerable<T> entities)

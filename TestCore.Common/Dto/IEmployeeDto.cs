@@ -6,7 +6,7 @@ namespace TestCore.Common.Dto
 {
     public interface IEmployeeDto
     {
-         Guid Id { get; set; }
+         string Id { get; set; }
          string EmployeeName { get; set; }
     }
 }

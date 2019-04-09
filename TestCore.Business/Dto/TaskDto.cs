@@ -7,11 +7,11 @@ namespace TestCore.Business.Dto
 {
     public class TaskDto : ITaskDto
     {
-        public Guid Id { get; set; }
+        public string Id { get; set; }= Guid.NewGuid().ToString();
         public string TaskTitle { get; set; }
         public string TaskDescription { get; set; }
         public DateTime TaskDateRescived { get; set; }
         public bool? TaskFinshed { get; set; }
-        public Guid EmployeeId { get; set; }
+        public string EmployeeId { get; set; }
     }
 }

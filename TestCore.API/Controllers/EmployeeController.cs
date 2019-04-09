@@ -38,7 +38,7 @@ namespace TestCore.API.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("Get/{Id}")]
-        public IActionResult GetEmloyee(Guid Id)
+        public IActionResult GetEmloyee(string Id)
         {
             var res = _employeeBusiness.Get(Id);
             return Ok(res);

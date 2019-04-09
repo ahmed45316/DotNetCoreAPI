@@ -14,7 +14,8 @@ namespace TestCore.Entities
 
         }
         [Key]
-        public Guid Id { get; set; }
+        [StringLength(50)]
+        public string Id { get; set; }
         [StringLength(100)]
         public string EmployeeName { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

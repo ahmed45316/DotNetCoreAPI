@@ -8,7 +8,7 @@ namespace TestCore.Business.IWorkBusiness
     public interface ITaskBusiness
     {
         IEnumerable<TaskDto> GetAll();
-        TaskDto Get(Guid Id);
+        TaskDto Get(string Id);
         TaskDto Create(TaskDto data);
         void Update(TaskDto data);
         void Remove(TaskDto data);

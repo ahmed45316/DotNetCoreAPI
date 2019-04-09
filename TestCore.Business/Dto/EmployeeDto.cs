@@ -7,7 +7,7 @@ namespace TestCore.Business.Dto
 {
     public class EmployeeDto : IEmployeeDto
     {
-        public Guid Id { get; set; }
+        public string Id { get; set; } = Guid.NewGuid().ToString();
         public string EmployeeName { get; set; }
     }
 }

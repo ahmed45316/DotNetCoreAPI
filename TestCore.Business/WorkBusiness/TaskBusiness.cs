@@ -13,7 +13,7 @@ namespace TestCore.Business.WorkBusiness
             throw new NotImplementedException();
         }
 
-        public TaskDto Get(Guid Id)
+        public TaskDto Get(string Id)
         {
             throw new NotImplementedException();
         }

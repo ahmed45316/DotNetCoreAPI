@@ -10,7 +10,7 @@ using TestCore.Data.Context;
 namespace TestCore.Data.Migrations
 {
     [DbContext(typeof(WorkFlowContext))]
-    [Migration("20190408204622_InitDatabase")]
+    [Migration("20190409004628_InitDatabase")]
     partial class InitDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,8 +23,9 @@ namespace TestCore.Data.Migrations
 
             modelBuilder.Entity("TestCore.Entities.Employees", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasMaxLength(50);
 
                     b.Property<string>("EmployeeName")
                         .HasMaxLength(100);
@@ -36,11 +37,12 @@ namespace TestCore.Data.Migrations
 
             modelBuilder.Entity("TestCore.Entities.Tasks", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasMaxLength(50);
 
-                    b.Property<Guid>("EmployeeId")
-                        .HasMaxLength(256);
+                    b.Property<string>("EmployeeId")
+                        .HasMaxLength(50);
 
                     b.Property<DateTime>("TaskDateRescived");
 
@@ -63,8 +65,7 @@ namespace TestCore.Data.Migrations
                 {
                     b.HasOne("TestCore.Entities.Employees", "Employee")
                         .WithMany("Tasks")
-                        .HasForeignKey("EmployeeId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("EmployeeId");
                 });
 #pragma warning restore 612, 618
         }

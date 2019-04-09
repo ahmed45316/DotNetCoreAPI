@@ -11,7 +11,7 @@ namespace TestCore.Data.Migrations
                 name: "Employees",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(nullable: false),
+                    Id = table.Column<string>(maxLength: 50, nullable: false),
                     EmployeeName = table.Column<string>(maxLength: 100, nullable: true)
                 },
                 constraints: table =>
@@ -23,12 +23,12 @@ namespace TestCore.Data.Migrations
                 name: "Tasks",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(nullable: false),
+                    Id = table.Column<string>(maxLength: 50, nullable: false),
                     TaskTitle = table.Column<string>(maxLength: 100, nullable: true),
                     TaskDescription = table.Column<string>(maxLength: 500, nullable: true),
                     TaskDateRescived = table.Column<DateTime>(nullable: false),
                     TaskFinshed = table.Column<bool>(nullable: true),
-                    EmployeeId = table.Column<Guid>(maxLength: 256, nullable: false)
+                    EmployeeId = table.Column<string>(maxLength: 50, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -38,7 +38,7 @@ namespace TestCore.Data.Migrations
                         column: x => x.EmployeeId,
                         principalTable: "Employees",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(

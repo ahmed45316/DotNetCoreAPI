@@ -28,7 +28,7 @@ namespace TestCore.Business.WorkBusiness
             return res;
         }
 
-        public EmployeeDto Get(Guid Id)
+        public EmployeeDto Get(string Id)
         {
             var data = _employee.Repo.FirstOrDefault(q=>q.Id==Id);
             var dto = _mapper.Map<Employees, EmployeeDto>(data);
