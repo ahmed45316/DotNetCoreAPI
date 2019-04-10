@@ -8,9 +8,11 @@ namespace TestCore.Business.IWorkBusiness
     public interface IEmployeeBusiness
     {
         IEnumerable<EmployeeDto> GetAll();
+        IEnumerable<EmployeeDto> GetAllWithTasks();
         EmployeeDto Get(string Id);
-        EmployeeDto Create(EmployeeDto data);
+        EmployeeDto GetWithTasks(string Id);
+        void Create(EmployeeDto data);
         void Update(EmployeeDto data);
-        void Remove(EmployeeDto data);
+        void Remove(string Id);
     }
 }

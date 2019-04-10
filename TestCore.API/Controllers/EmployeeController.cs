@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System;
 using TestCore.Business.Dto;
 using TestCore.Business.IWorkBusiness;
 
@@ -32,6 +31,16 @@ namespace TestCore.API.Controllers
             return Ok(res);
         }
         /// <summary>
+        /// Get all Employees with tasks
+        /// </summary>
+        [HttpGet]
+        [Route("GetAllWithTasks")]
+        public IActionResult GetAllEmloyeesIncludeTasks()
+        {
+            var res = _employeeBusiness.GetAllWithTasks();
+            return Ok(res);
+        }
+        /// <summary>
         /// Get Employee
         /// </summary>
         /// <param name="Id"></param>
@@ -44,6 +53,18 @@ namespace TestCore.API.Controllers
             return Ok(res);
         }
         /// <summary>
+        /// Get Employee with tasks
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("GetWithTasks/{Id}")]
+        public IActionResult GetEmloyeeIncludeTasks(string Id)
+        {
+            var res = _employeeBusiness.GetWithTasks(Id);
+            return Ok(res);
+        }
+        /// <summary>
         /// Add Employee
         /// </summary>
         /// <param name="dto"></param>
@@ -52,8 +73,8 @@ namespace TestCore.API.Controllers
         [Route("Create")]
         public IActionResult AddEmloyee(EmployeeDto dto)
         {
-            var res = _employeeBusiness.Create(dto);
-            return Ok(res);
+            _employeeBusiness.Create(dto);
+            return Ok();
         }
         /// <summary>
         /// update Employee
@@ -70,13 +91,13 @@ namespace TestCore.API.Controllers
         /// <summary>
         /// Remove Employee
         /// </summary>
-        /// <param name="dto"></param>
+        /// <param name="Id"></param>
         /// <returns></returns>
-        [HttpPost]
-        [Route("Remove")]
-        public IActionResult RemoveEmloyee(EmployeeDto dto)
+        [HttpGet]
+        [Route("Remove/{Id}")]
+        public IActionResult RemoveEmloyee(string Id)
         {
-            _employeeBusiness.Remove(dto);
+            _employeeBusiness.Remove(Id);
             return Ok();
         }
     }

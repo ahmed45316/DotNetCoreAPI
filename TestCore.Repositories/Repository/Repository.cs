@@ -73,13 +73,9 @@ namespace TestCore.Repositories.Repository
             return Find(x => TrueExpression, includes);
         }
 
-        public T Add(T newEntity)
+        public void Add(T newEntity)
         {
-            return DbSet.Add(newEntity).Entity;
-        }
-        public void Create(T newEntity)
-        {
-            DbSet.Add(newEntity);
+             DbSet.Add(newEntity);
         }
         public void AddRange(IEnumerable<T> newEntities)
         {

@@ -9,8 +9,8 @@ namespace TestCore.Business.IWorkBusiness
     {
         IEnumerable<TaskDto> GetAll();
         TaskDto Get(string Id);
-        TaskDto Create(TaskDto data);
+        void Create(TaskDto data);
         void Update(TaskDto data);
-        void Remove(TaskDto data);
+        void Remove(string Id);
     }
 }

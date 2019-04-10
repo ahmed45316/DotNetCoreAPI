@@ -15,8 +15,7 @@ namespace TestCore.Repositories.Repository
         IQueryable<T> Find(Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includes);
         T FirstOrDefault(Expression<Func<T, bool>> predicate);
         T FirstOrDefault(Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includes);
-        T Add(T newEntity);
-        void Create(T newEntity);
+        void Add(T newEntity);
         void AddRange(IEnumerable<T> newEntities);
         void Update(T entity);
         void Update(T entity, object key);

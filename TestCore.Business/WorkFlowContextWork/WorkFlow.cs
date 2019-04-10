@@ -14,13 +14,11 @@ namespace TestCore.Business.WorkFlowContextWork
         private  WorkFlowContext _context;
 
         public IRepository<T> Repo {get;}
-
-        private readonly IConfiguration config;
         public WorkFlow(IConfiguration config)
         {
             var connection = config.GetConnectionString("MyConnStr");
             var optionsBuilder = new DbContextOptionsBuilder<WorkFlowContext>();
-            optionsBuilder.UseLazyLoadingProxies().UseSqlServer(connection);
+            optionsBuilder.UseLazyLoadingProxies().UseSqlServer(connection).EnableSensitiveDataLogging();
             _context =new WorkFlowContext(optionsBuilder.Options);
             Repo = new Repository<T>(_context);
         }
