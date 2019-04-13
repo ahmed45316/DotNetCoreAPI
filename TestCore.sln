@@ -3,17 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.489
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestCore.API", "TestCore.API\TestCore.API.csproj", "{229A55D0-19C9-4651-A48E-A96593A9EB72}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestCore.API", "TestCore.API\TestCore.API.csproj", "{229A55D0-19C9-4651-A48E-A96593A9EB72}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestCore.Entities", "TestCore.Entities\TestCore.Entities.csproj", "{94F81EFD-93B3-44CD-A1EF-01D4D1EB3B82}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestCore.Entities", "TestCore.Entities\TestCore.Entities.csproj", "{94F81EFD-93B3-44CD-A1EF-01D4D1EB3B82}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestCore.Data", "TestCore.Data\TestCore.Data.csproj", "{1558FCAA-74F1-4660-A80F-BB7F1EDE652B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestCore.Data", "TestCore.Data\TestCore.Data.csproj", "{1558FCAA-74F1-4660-A80F-BB7F1EDE652B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestCore.Repositories", "TestCore.Repositories\TestCore.Repositories.csproj", "{B30711FC-433B-4ACA-B320-ED6D809E007A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestCore.Repositories", "TestCore.Repositories\TestCore.Repositories.csproj", "{B30711FC-433B-4ACA-B320-ED6D809E007A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestCore.Business", "TestCore.Business\TestCore.Business.csproj", "{E6092EE0-BC78-45FE-A568-A29F0D388811}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestCore.Business", "TestCore.Business\TestCore.Business.csproj", "{E6092EE0-BC78-45FE-A568-A29F0D388811}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestCore.Common", "TestCore.Common\TestCore.Common.csproj", "{2102EE3C-5D95-45E8-BC9B-56D5C379C1F9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestCore.Common", "TestCore.Common\TestCore.Common.csproj", "{2102EE3C-5D95-45E8-BC9B-56D5C379C1F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestCore.IdentityData", "TestCore.IdentityData\TestCore.IdentityData.csproj", "{18971448-F4C6-490A-9546-9FEFD45549F1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{2102EE3C-5D95-45E8-BC9B-56D5C379C1F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2102EE3C-5D95-45E8-BC9B-56D5C379C1F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2102EE3C-5D95-45E8-BC9B-56D5C379C1F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18971448-F4C6-490A-9546-9FEFD45549F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18971448-F4C6-490A-9546-9FEFD45549F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18971448-F4C6-490A-9546-9FEFD45549F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18971448-F4C6-490A-9546-9FEFD45549F1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
