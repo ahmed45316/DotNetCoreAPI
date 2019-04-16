@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using TestCore.Business.Dto;
 using TestCore.Business.IWorkBusiness;
+using TestCore.Business.WorkFlowContextWork;
 using TestCore.Entities;
-using TestCore.Repositories.UnitOfWork;
 
 namespace TestCore.Business.WorkBusiness
 {
     public class EmployeeBusiness : IEmployeeBusiness
     {
         private readonly IMapper _mapper;
-        private readonly IUnitOfWork<Employees> _employee;
-        public EmployeeBusiness(IMapper mapper, IUnitOfWork<Employees> employee)
+        private readonly IWorkFlow<Employees> _employee;
+        public EmployeeBusiness(IMapper mapper, IWorkFlow<Employees> employee)
         {
             _mapper = mapper;
             _employee = employee;
@@ -37,23 +37,23 @@ namespace TestCore.Business.WorkBusiness
             return dto;
         }
 
-        public IEnumerable<EmployeeDto> GetAllWithTasks()
+        public IEnumerable<EmployeeWithTasksDto> GetAllWithTasks()
         {
             var data = _employee.Repo.GetAll(q=>q.Tasks);
-            var dto = _mapper.Map<IEnumerable<Employees>, IEnumerable<EmployeeDto>>(data);
+            var dto = _mapper.Map<IEnumerable<Employees>, IEnumerable<EmployeeWithTasksDto>>(data);
             return dto;
         }
 
-        public EmployeeDto GetWithTasks(string Id)
+        public EmployeeWithTasksDto GetWithTasks(string Id)
         {
             var data = _employee.Repo.FirstOrDefault(q => q.Id == Id,q=>q.Tasks);
-            var dto = _mapper.Map<Employees, EmployeeDto>(data);
+            var dto = _mapper.Map<Employees, EmployeeWithTasksDto>(data);
             return dto;
         }
 
         public void Remove(string Id)
         {
-            var emp = _employee.Repo.FirstOrDefault(q => q.Id.Equals(Id));
+            var emp = _employee.Repo.FirstOrDefault(q => q.Id.Equals(Id),q=>q.Tasks);
             _employee.Repo.Remove(emp);
             _employee.SaveChanges();
 

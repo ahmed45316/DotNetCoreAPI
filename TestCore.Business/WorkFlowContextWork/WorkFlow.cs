@@ -17,7 +17,7 @@ namespace TestCore.Business.WorkFlowContextWork
         {
             var connection = config.GetConnectionString("MyConnStr");
             var optionsBuilder = new DbContextOptionsBuilder<WorkFlowContext>();
-            optionsBuilder.UseLazyLoadingProxies().UseSqlServer(connection).EnableSensitiveDataLogging();
+            optionsBuilder.UseSqlServer(connection).UseLazyLoadingProxies().EnableSensitiveDataLogging();
             _context =new WorkFlowContext(optionsBuilder.Options);
             Repo = new Repository<T>(_context);
         }

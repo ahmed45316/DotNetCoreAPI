@@ -24,7 +24,7 @@
     "TestCore.API": {
       "commandName": "IIS",
       "launchBrowser": true,
-      "launchUrl": "api/values",
+      "launchUrl": "http://localhost/TestCore.API",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },

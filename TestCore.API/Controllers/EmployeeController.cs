@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using TestCore.Business.Dto;
 using TestCore.Business.IWorkBusiness;
@@ -94,7 +95,7 @@ namespace TestCore.API.Controllers
         /// </summary>
         /// <param name="Id"></param>
         /// <returns></returns>
-        [HttpGet]
+        [HttpDelete]
         [Route("Remove/{Id}")]
         public IActionResult RemoveEmloyee(string Id)
         {

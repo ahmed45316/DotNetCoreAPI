@@ -4,16 +4,16 @@ using System.Collections.Generic;
 using System.Text;
 using TestCore.Business.Dto;
 using TestCore.Business.IWorkBusiness;
+using TestCore.Business.WorkFlowContextWork;
 using TestCore.Entities;
-using TestCore.Repositories.UnitOfWork;
 
 namespace TestCore.Business.WorkBusiness
 {
     public class TaskBusiness : ITaskBusiness
     {
         private readonly IMapper _mapper;
-        private readonly IUnitOfWork<Tasks> _task;
-        public TaskBusiness(IMapper mapper, IUnitOfWork<Tasks> task)
+        private readonly IWorkFlow<Tasks> _task;
+        public TaskBusiness(IMapper mapper, IWorkFlow<Tasks> task)
         {
             _mapper = mapper;
             _task = task;

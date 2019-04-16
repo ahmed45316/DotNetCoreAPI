@@ -17,6 +17,7 @@ namespace TestCore.Business.Profiler
         private void MappEmployee()
         {
             CreateMap<Employees, EmployeeDto>().ReverseMap();
+            CreateMap<Employees, EmployeeWithTasksDto>().ReverseMap();
         }
         private void MappTask()
         {

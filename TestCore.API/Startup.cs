@@ -17,6 +17,7 @@ using TestCore.Business.IdentityServer4;
 using TestCore.Business.WorkBusiness;
 using TestCore.Business.WorkFlowContextWork;
 using TestCore.Data.IdentityContext;
+using TestCore.Repositories.Repository;
 using TestCore.Repositories.UnitOfWork;
 
 namespace TestCore.API
@@ -46,6 +47,7 @@ namespace TestCore.API
         /// <param name="services"></param>
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors();
             services.AddAutoMapper();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddSwaggerGen(c =>
@@ -113,6 +115,12 @@ namespace TestCore.API
             {
                 c.SwaggerEndpoint("/swagger/v1.0/swagger.json", "Test Core API (V 1.0)");
             });
+            app.UseCors(builder => builder
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .AllowCredentials());
+            app.UseHttpsRedirection();
             app.UseMvc();
             app.UseIdentityServer();
             app.UseAuthentication();
