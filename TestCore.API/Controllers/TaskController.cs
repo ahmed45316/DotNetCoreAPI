@@ -12,7 +12,7 @@ namespace TestCore.API.Controllers
     /// <summary>
     /// 
     /// </summary>
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class TaskController : ControllerBase
     {
@@ -57,7 +57,7 @@ namespace TestCore.API.Controllers
         public IActionResult AddTask(TaskDto dto)
         {
             _taskBusiness.Create(dto);
-            return Ok();
+            return Created("", true);
         }
         /// <summary>
         /// update Task
@@ -76,7 +76,7 @@ namespace TestCore.API.Controllers
         /// </summary>
         /// <param name="Id"></param>
         /// <returns></returns>
-        [HttpGet]
+        [HttpDelete]
         [Route("Remove/{Id}")]
         public IActionResult RemoveTask(string Id)
         {

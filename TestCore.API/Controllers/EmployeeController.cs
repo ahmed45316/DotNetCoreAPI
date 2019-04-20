@@ -76,7 +76,7 @@ namespace TestCore.API.Controllers
         public IActionResult AddEmloyee(EmployeeDto dto)
         {
             _employeeBusiness.Create(dto);
-            return Ok();
+            return Created("", true);
         }
         /// <summary>
         /// update Employee

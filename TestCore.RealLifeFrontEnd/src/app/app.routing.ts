@@ -8,11 +8,13 @@ import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
+import { SelectiveStrategy } from './selective-strategy.service';
+import { EmployeesComponent } from './Pages/employees/employees.component';
 
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: 'login',
     pathMatch: 'full',
   },
   {
@@ -41,6 +43,13 @@ export const routes: Routes = [
     component: RegisterComponent,
     data: {
       title: 'Register Page'
+    }
+  },
+  {
+    path: 'employees',
+    component: EmployeesComponent,
+    data: {
+      title: 'Emloyees Page'
     }
   },
   {
@@ -88,7 +97,7 @@ export const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [ RouterModule.forRoot(routes) ],
+  imports: [ RouterModule.forRoot(routes,{ enableTracing: true, preloadingStrategy: SelectiveStrategy }) ],
   exports: [ RouterModule ]
 })
 export class AppRoutingModule {}

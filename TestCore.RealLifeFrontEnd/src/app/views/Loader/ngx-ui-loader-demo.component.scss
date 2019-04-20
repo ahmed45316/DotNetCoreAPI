@@ -1,0 +1,61 @@
+.fill-space {
+    flex: 1 1 auto;
+  }
+  
+  h2, h3 {
+    font-family: Roboto, "Heltical Neue", sans-serif;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  h3 {
+    margin-top: 10px;
+  }
+  
+  mat-slider {
+    width: 100%;
+  }
+  
+  .place-holder {
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    color: rgba(0, 0, 0, 0.54);
+    font-size: 75%;
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+  .p-12 {
+    padding: 12px;
+  }
+  
+  .mat-icon.mdi-24px {
+    line-height: 24px;
+    margin-right: 4px;
+    margin-bottom: 3px;
+  }
+  
+  .config-info {
+    margin: 8px 16px 0 16px;
+  
+    & pre {
+      margin: 0;
+      overflow-x: auto;
+    }
+  }
+  
+  .mat-elevation-z4 {
+    background-color: rgba(63, 81, 181, 0.3);
+  }
+  
+  .mat-list-item code {
+    font-size: 75%;
+  }
+  
+  .downloads-chart {
+    width: 100%;
+    margin-top: 24px;
+  }
+  
+  .mat-raised-button {
+    margin: 6px 12px;
+  }

@@ -13,7 +13,7 @@ using Swashbuckle.AspNetCore.Swagger;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using TestCore.Business.IdentityServer4;
+using TestCore.Business.Identity;
 using TestCore.Business.WorkBusiness;
 using TestCore.Business.WorkFlowContextWork;
 using TestCore.Data.IdentityContext;
@@ -82,13 +82,13 @@ namespace TestCore.API
                 options.SignInScheme = "cookie";
             });
             //
-            string connectionString = Configuration.GetConnectionString("IdentityServer4");
-            var migrationsAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
-            services.AddDbContext<ApplicationDbContext>(builder =>
-            builder.UseSqlServer(connectionString, sqlOptions => sqlOptions.MigrationsAssembly(migrationsAssembly)));
+            //string connectionString = Configuration.GetConnectionString("IdentityServer4");
+            //var migrationsAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
+            //services.AddDbContext<ApplicationDbContext>(builder =>
+            //builder.UseSqlServer(connectionString, sqlOptions => sqlOptions.MigrationsAssembly(migrationsAssembly)));
 
-            services.AddIdentity<IdentityUser, IdentityRole>()
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+            //services.AddIdentity<IdentityUser, IdentityRole>()
+            //    .AddEntityFrameworkStores<ApplicationDbContext>();
         }
 
 
@@ -113,7 +113,10 @@ namespace TestCore.API
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1.0/swagger.json", "Test Core API (V 1.0)");
+                //IISExpress
+                //c.SwaggerEndpoint("/swagger/v1.0/swagger.json", "Test Core API (V 1.0)");  
+                //IIS
+                c.SwaggerEndpoint("/TestCore.API/swagger/v1.0/swagger.json", "Test Core API (V 1.0)");
             });
             app.UseCors(builder => builder
                 .AllowAnyOrigin()

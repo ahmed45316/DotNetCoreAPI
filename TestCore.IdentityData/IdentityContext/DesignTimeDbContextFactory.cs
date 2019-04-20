@@ -6,18 +6,18 @@ using TestCore.Data.IdentityContext;
 
 namespace TestCore.API
 {
-    public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<ApplicationDbContext>
+    public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<IdentityDbContext>
     {
-        public ApplicationDbContext CreateDbContext(string[] args)
+        public IdentityDbContext CreateDbContext(string[] args)
         {
             IConfigurationRoot configuration = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json")
                 .Build();
-            var builder = new DbContextOptionsBuilder<ApplicationDbContext>();
+            var builder = new DbContextOptionsBuilder<IdentityDbContext>();
             var connectionString = configuration.GetConnectionString("IdentityServer4");
             builder.UseSqlServer(connectionString);
-            return new ApplicationDbContext(builder.Options);
+            return new IdentityDbContext(builder.Options);
         }
     }
 }

@@ -9,7 +9,7 @@ export class EmployeeService {
 
   formData  : Employee;
   list : Employee[];
-  readonly rootURL ="https://localhost:44371/Employee/"
+  readonly rootURL ="http://localhost/TestCore.API/Employee/"
 
   constructor(private http : HttpClient) { }
 
@@ -18,8 +18,9 @@ export class EmployeeService {
   }
 
   refreshList(){
-    this.http.get(`${this.rootURL}GetAll`)
-    .toPromise().then(res => this.list = res as Employee[]);
+    this.http.get<Employee[]>(`${this.rootURL}GetAll`).subscribe((res)=>this.list=res as Employee[]);
+     //this.http.get<Employee[]>(`${this.rootURL}GetAll`);
+    // .toPromise().then(res => this.list = res as Employee[]);
   }
 
   putEmployee(formData : Employee){

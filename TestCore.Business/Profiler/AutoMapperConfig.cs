@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using TestCore.Business.Dto;
 using TestCore.Entities;
+using TestCore.Entities.Identity;
 
 namespace TestCore.Business.Profiler
 {
@@ -13,6 +14,7 @@ namespace TestCore.Business.Profiler
         {
             MappEmployee();
             MappTask();
+            MappUser();
         }
         private void MappEmployee()
         {
@@ -22,6 +24,10 @@ namespace TestCore.Business.Profiler
         private void MappTask()
         {
             CreateMap<Tasks, TaskDto>().ReverseMap();
+        }
+        private void MappUser()
+        {
+            CreateMap<AspNetUser, UserDto>().ReverseMap();
         }
     }
 }
