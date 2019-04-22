@@ -17,7 +17,6 @@ import { DefaultLayoutComponent } from './containers';
 
 import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
-import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
 
 const APP_CONTAINERS = [
@@ -43,8 +42,7 @@ import { UserModule } from './views/login/user.module';
 import { MessageModule } from './views/messages/message.module';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { EmployeesComponent } from './pages/employees/employees.component';
- 
+import { ScreensModule } from './screens/employees/screens.module'
   
 @NgModule({
   imports: [
@@ -62,15 +60,15 @@ import { EmployeesComponent } from './pages/employees/employees.component';
     ChartsModule,
     UserModule,
     MessageModule,
-    HttpClientModule
+    HttpClientModule,
+    ScreensModule
   ],
   declarations: [
     AppComponent,
     ...APP_CONTAINERS,
     P404Component,
     P500Component,
-    RegisterComponent,
-    EmployeesComponent
+    RegisterComponent
   ],
   providers: [{
     provide: LocationStrategy,

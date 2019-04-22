@@ -58,6 +58,17 @@ export const navItems: NavData[] = [
     name: 'Components'
   },
   {
+    name: 'Screens',
+    url: '/screens',
+    icon: 'icon-puzzle',
+    children: [
+      {
+        name: 'Employees',
+        url: '/screens/employees',
+        icon: 'icon-puzzle'
+      }],
+    },
+    {
     name: 'Base',
     url: '/base',
     icon: 'icon-puzzle',

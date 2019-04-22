@@ -9,7 +9,6 @@ import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
 import { SelectiveStrategy } from './selective-strategy.service';
-import { EmployeesComponent } from './Pages/employees/employees.component';
 
 export const routes: Routes = [
   {
@@ -46,19 +45,16 @@ export const routes: Routes = [
     }
   },
   {
-    path: 'employees',
-    component: EmployeesComponent,
-    data: {
-      title: 'Emloyees Page'
-    }
-  },
-  {
     path: '',
     component: DefaultLayoutComponent,
     data: {
       title: 'Home'
     },
     children: [
+      {
+        path: 'screens',
+        loadChildren: './screens/employees/screens.module#ScreensModule'
+      },
       {
         path: 'base',
         loadChildren: './views/base/base.module#BaseModule'
